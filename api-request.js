@@ -4,7 +4,7 @@ import axios from 'axios';
 /* API Parameters */
 const endpoint =
   'https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed'; // Endpoint
-const key = ''; // API Key (https://developers.google.com/speed/docs/insights/v5/get-started)
+const key = process.env.PAGESPEED_API_KEY; // API Key from environment variable
 
 // Custom function to request PageSpeed API
 export const apiRequest = async (url, device) => {

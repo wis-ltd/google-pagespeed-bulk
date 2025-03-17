@@ -13,8 +13,8 @@ const file = 'urls.csv'; // File name for list of URLs to check
 const folder = 'results'; // Name of folder for output
 const fullJson = true; // Variable for testing purposes. Extracts full API response into JSON File
 const chunkNum = 10; // Number or URLs per batch
-const numTest = 1; // Number of Lab test to run (Lighthouse)
-const device = 'mobile'; // Test viewport. 'desktop' also available
+const numTest = process.env.NUM_TESTS; // Number of Lab test to run (Lighthouse)
+const device = process.env.STRATEGY; // Test viewport. 'desktop' also available
 
 ////* Start of script *////
 console.time();
