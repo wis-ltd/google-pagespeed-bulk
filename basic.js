@@ -88,10 +88,10 @@ const getFieldData = async () => {
         );
 
         // Otherwise Extract Origin Field metrics (if there are)
-        const fieldFCP = fieldMetrics.FIRST_CONTENTFUL_PAINT_MS.percentile;
-        const fieldFID = fieldMetrics.FIRST_INPUT_DELAY_MS.percentile;
-        const fieldLCP = fieldMetrics.LARGEST_CONTENTFUL_PAINT_MS.percentile;
-        const fieldCLS = fieldMetrics.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile;
+        const fieldFCP = fieldMetrics.FIRST_CONTENTFUL_PAINT_MS ? fieldMetrics.FIRST_CONTENTFUL_PAINT_MS.percentile : "FIRST_CONTENTFUL_PAINT_MS undefined";
+        const fieldFID = fieldMetrics.FIRST_INPUT_DELAY_MS ? fieldMetrics.FIRST_INPUT_DELAY_MS.percentile : "FIRST_INPUT_DELAY_MS undefined";
+        const fieldLCP = fieldMetrics.LARGEST_CONTENTFUL_PAINT_MS ? fieldMetrics.LARGEST_CONTENTFUL_PAINT_MS.percentile : "LARGEST_CONTENTFUL_PAINT_MS undefined";
+        const fieldCLS = fieldMetrics.CUMULATIVE_LAYOUT_SHIFT_SCORE ? fieldMetrics.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile : "CUMULATIVE_LAYOUT_SHIFT_SCORE undefined";
 
         // Construct fieldResult object
         const fieldResObj = {
