@@ -2,42 +2,42 @@
 
 Script to extract Google PageSpeed API Data from multiple URLs. The script allows to perform multiple tests in the same run and calculate the median value for each extracted speed metric and Core Web Vitals metric from the total number of results.
 
+## Table of Contents
+
+- [Google PageSpeed Insights API for Node.js](#google-pagespeed-insights-api-for-nodejs)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [How to install and run the script](#how-to-install-and-run-the-script)
+  - [The output](#the-output)
+
+## Prerequisites
+
+- Docker
+
 ## How to install and run the script
 
-1. This script uses ES modules syntax. Make sure that you have installed Node.js version 14 or higher. To check what version you are running type in your terminal:
+1. Check your Docker version. Make sure you have Docker installed and running. To check what version you are running type in your terminal:
 
    ```bash
-   node -v
+   docker -v
    ```
 
-2. Clone/Download the repository. Type in your terminal one of the following options:
+2. Install the modules from the script using Docker. Type in your terminal:
 
    ```bash
-   # Git
-   git clone https://github.com/jlhernando/google-pagespeed-bulk.git
-
-   # OR Github's CLI
-   gh repo clone https://github.com/jlhernando/google-pagespeed-bulk
+   docker compose run node npm install
    ```
 
-3. Install the modules from the script. Type in your terminal:
-
-   ```bash
-   npm install
-   ```
-
+3. Create a copy of the `.env.example` file with the name `.env`.
 4. Get a Google API Key. You can do it from your [GCP console](https://console.cloud.google.com/apis/credentials) or from [from Google's documentation](https://developers.google.com/speed/docs/insights/v5/get-started)
-5. Add your key to “api-request.js” file.
-6. Add URLs into the 'urls.csv' file but keep the "url" header.
-7. You can change the number of tests per URL you'd like to perform. Change the variable `numTest` in Line 16 to your desired number of tests. Maximum recommended 5.
-   ```javascript
-   // Example tu run 3 lab tests
-   const numTest = 1; // Number of Lab test to run (Lighthouse). Line 16
-   ```
-8. You can also change the device variable from `mobile` to `desktop` is you want to get different viewport results.
-9. Run the script. Type in your terminal:
+5. Add your key to the `.env` file.
+6. Add URLs into the `urls.csv` file but keep the "url" header.
+7. You can change the number of tests per URL you'd like to perform. Change the variable `NUM_TESTS` in the `.env` file to your desired number of tests. Maximum recommended 5.
+8. You can also change the device variable from `MOBILE` to `DESKTOP` on the `STRATEGY` key of the `.env` file  is you want to get different viewport results.
+9. Run the script using Docker. Type in your terminal:
+
    ```bash
-   npm start
+   docker compose run node npm start
    ```
 
 ## The output
